@@ -1,0 +1,38 @@
+extends layout
+
+block content
+    .top-content
+          .inner-bg
+            .container
+              .row
+                .col-sm-8.col-sm-offset-2.text
+                  h1
+                    strong BUAP
+                    |  SysHuskies
+              .row
+                .col-sm-6.col-sm-offset-3.form-box
+                  .form-top
+                    .form-top-left
+                      h3 Login to our site
+                      p Enter your username and password to log on:
+                  form(method='post', action='/users/login')
+                    .form-group
+                        label.sr-only(for='form-username') Username
+                        input#form-username.form-username.form-control(type='text', name='username', placeholder='Username...')
+                    .form-group
+                        label.sr-only(for='form-password') Password
+                        input#form-password.form-password.form-control(type='text', name='password', placeholder='Password...')
+                    .form-group
+                        lable PasswordEncrypted
+                        textarea#comment.form-control(rows='2') #{encryptedPass}
+                    .form-group
+                        lable Private Key
+                        textarea#comment.form-control(rows='7') #{keyPrivateString}
+                    .form-group
+                        lable Password Decrypted
+                        input.form-control(name='passworddecrypted', type='text', value='#{decrypted}')
+
+                      button.btn(type='submit', name='login', value='login') Log in!
+                    .form-group
+                        .alert.alert-info(role='alert')
+
